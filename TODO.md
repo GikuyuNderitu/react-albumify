@@ -13,4 +13,6 @@
 
 [  ] Use d3 to show metrics of the users most played songs?
 
+[  ] Style with semantic-ui-react 
+
 [  ] Disable password confirmation field if password is invalid in the register component
