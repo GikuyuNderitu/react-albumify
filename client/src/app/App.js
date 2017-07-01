@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GridList from 'material-ui/GridList';
 
-import Header from './header/header';
-import {Footer} from './footer/footer';
-import Home from './home/home';
-import Landing from './landing/landing';
-import Login from './login/login';
-import Register from './register/register';
-import NotFound from './not-found/NotFound';
+
+import { Header, Footer, Home, Landing, Login, Register, NotFound } from './components';
+
 
 import styles from './App.sass';
 

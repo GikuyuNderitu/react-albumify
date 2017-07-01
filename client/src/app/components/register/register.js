@@ -4,7 +4,7 @@ import Input from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { FormControl } from '../../material-forms';
-import shared from '../shared-styles.sass';
+import shared from '../../shared-styles.sass';
 
 import { user } from '../../utils/models';
 
