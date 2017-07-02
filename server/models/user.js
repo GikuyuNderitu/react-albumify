@@ -12,10 +12,26 @@ const mongoose = require('mongoose'),
 	EMAIL_REGEX = /^[a-z0-9;.'/!#$^*()]{2,}@.{2,}\..{2,}$/i,
 	PASSWORD_REGEX = /^.{8,}$/,
 	UserSchema = new Schema({
-		firstNname: {
+		firstName: {
 			type: String,
 			required: [true, "First Name is required"],
 			trim: true
+		},
+		username: {
+			type: String,
+			required: [true, "Username is required"],
+			trim: true
+		},
+		email: {
+			type: String,
+			required: [true, "Email is required"],
+			validate: {
+				validator: function (email) {
+					return EMAIL_REGEX.test(email);
+				},
+				message: "{VALUE} is not a valid email."
+			},
+			unique: "I'm sorry, there may only be one email."
 		},
 		password:{
 			type: String,
