@@ -3,6 +3,10 @@
 
 [  ] Implement Auth on the client by expecting a token from the server and saving the user state to the application
 
+[ x ] Build authentication create function
+
+[  ] Programatically route after successful creation of user on frontend
+
 [  ] Build server authentication endpoint with jwt
 
 [  ] Implement Passport strategy OAuth
