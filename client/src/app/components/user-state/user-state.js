@@ -25,7 +25,7 @@ class UserState extends Component {
 			<ul>
 				<li><NavLink exact activeClassName="active" to="/">Welcome</NavLink></li>
 				<li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
-				<li><NavLink activeClassName="active" to="/register">Register</NavLink></li>
+				<li><NavLink activeClassName="active" to="/signup">Register</NavLink></li>
 			</ul>
 		)
 	}

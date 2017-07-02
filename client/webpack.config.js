@@ -10,11 +10,20 @@ module.exports = {
 	module: {
 		rules: [
 			{test: /\.js$/, use: 'babel-loader' },
+			// {test: /\.css$/, use: ['style-loader', 'css-loader']},
 			{test: /\.sass$/, use: ['style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'sass-loader?indentedSyntax']}
 		]
 	},
 	devServer: {
-		historyApiFallback: true
+		historyApiFallback: true,
+		proxy: {
+			"/users": {
+				target: "http://localhost:1337",
+			},
+			"/api": {
+				target: "http://localhost:1337",
+			}
+		}
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

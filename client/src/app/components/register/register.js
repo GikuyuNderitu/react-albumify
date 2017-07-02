@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import Input from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -7,6 +9,8 @@ import { FormControl } from '../../material-forms';
 import shared from '../../shared-styles.sass';
 
 import { user } from '../../utils/models';
+
+import { register } from '../../state/actions/authActions';
 
 const validateName = newValue => {
 	if (newValue.length < 3) return "I'm sorry, the first name must be greater than 3 letters";
@@ -18,20 +22,34 @@ class Register extends Component {
 		super(props);
 		this.state = {
 			formValid: false,
-			user
+			user,
+			newUser: {}
 		}
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		console.log('submitted');
-
+		
+		this.props.register(this.state.newUser)
 	}
 
 	handleChange(key, prevState, newValue) {
-		console.log(key, prevState);
-		if(key === 'passwordConfirmation') this.state.user.passwordConfirmation.validate(newValue, this.state.user.password)
-		else this.state.user[key].validate(newValue)
+		// console.log(key, prevState);
+		// Check to see if value is valid
+
+		let valid;
+		if(key === 'passwordConfirmation') valid = this.state.user.passwordConfirmation.validate(newValue, this.state.user.password);
+		else valid = this.state.user[key].validate(newValue);
+
+		const newUser = {...this.state.newUser };
+
+		console.log(newUser);
+
+		if(valid) {
+			newUser[key] = newValue;
+			this.setState({newUser: newUser})
+		}
 
 		this.dirtyCheckForm()
 	}
@@ -86,11 +104,12 @@ class Register extends Component {
 						type="submit"
 						className={shared.formSubmit}
 						label="Submit" 
-						disabled={!this.state.formValid} />
+						disabled={!this.state.formValid}
+						onClick={this.handleSubmit.bind(this)} />
 				</FormControl>
 			</div>
 		)
 	}
 }
 
-export default Register
+export default connect(null, { register })(Register);

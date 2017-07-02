@@ -5,6 +5,7 @@ const PASSWORD_REGEX = /^[a-zA-Z\d\-\?\!\#\.\^\<\>\$\;]{8,64}$/i
 const invalidate = (message, obj) => {
 	obj.valid = false;
 	obj.err = message;
+	return false;
 }
 
 export default {
@@ -19,6 +20,7 @@ export default {
 				this.err = "";
 				this.value = newVal;
 				this.valid = true;
+				return true;
 			}
 		},
 		err: ''
@@ -33,6 +35,7 @@ export default {
 				this.err = '';
 				this.value = newVal;
 				this.valid = true;
+				return true;
 			}
 		},
 		err: ''
@@ -47,6 +50,7 @@ export default {
 				this.err = "";
 				this.value = newVal;
 				this.valid = true;
+				return true;
 			}
 		},
 		err: ''
@@ -61,6 +65,7 @@ export default {
 				this.err = "";
 				this.value = newVal;
 				this.valid = true;
+				return true;
 			}
 		},
 		err: ''
@@ -69,13 +74,14 @@ export default {
 		value: "",
 		valid: false,
 		validate(newVal, password) {
-			if(!password.valid) return this.err = "Please first enter a valid password";
+			if(!password.valid) return invalidate("Please first enter a valid password", this);
 			if(!newVal) invalidate("Password confirmation is required", this);
 			else if(newVal !== password.value) invalidate("Password Confrimation field and password do not match", this);
 			else { 
 				this.err = "";
 				this.value = newVal;
 				this.valid = true;
+				return true;
 			}
 		},
 		disabled: true,

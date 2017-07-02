@@ -11,7 +11,9 @@ const initialState = {
 export default (state=initialState, action={}) => {
 	switch(action.type) {
 		case SIGNING_IN: return {...state, validating: true };
-		case SIGNING_IN_SUCCESS: return {...state, validating: false, isAuthenticated: true, user: action.payload };
+		case SIGNING_IN_SUCCESS:
+			console.log(action.payload);
+			return {...state, validating: false, isAuthenticated: true, user: action.payload };
 		case SIGNING_OUT: return { ...state};
 		default: return state;
 	}
