@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import shared from '../../shared-styles.sass';
+
 class Home extends Component {
 	constructor(props) {
 		super(props);
@@ -9,7 +11,7 @@ class Home extends Component {
 	}
 	render() {
 		return (
-			<div>Welcome Home {this.state.userName}</div>
+			<div className={shared.midContainer}> Home </div>
 		)
 	}
 }

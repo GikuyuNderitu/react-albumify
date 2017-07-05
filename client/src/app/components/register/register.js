@@ -11,6 +11,8 @@ import shared from '../../shared-styles.sass';
 import { user } from '../../utils/models';
 
 import { register } from '../../state/actions/authActions';
+import { SIGNING_IN_ERROR, SIGNING_IN_SUCCESS } from '../../state/actions/types';
+
 
 const validateName = newValue => {
 	if (newValue.length < 3) return "I'm sorry, the first name must be greater than 3 letters";
@@ -31,7 +33,7 @@ class Register extends Component {
 		e.preventDefault();
 		console.log('submitted');
 		
-		this.props.register(this.state.newUser)
+		this.props.attemptRegistry(this.state.newUser)
 	}
 
 	handleChange(key, prevState, newValue) {
@@ -112,4 +114,22 @@ class Register extends Component {
 	}
 }
 
-export default connect(null, { register })(Register);
+const mapDispatchToProps = (dispatch, props) => {
+	return {
+		attemptRegistry(body) {
+			register(body)
+			.then(data=> {
+				console.log("Register Event occurred and succeeded!", data);
+				dispatch({type: SIGNING_IN_SUCCESS, payload: data})
+				// props.history.push('/home')
+			})
+			.catch(err => {
+				console.error("Registration event occurred and failed :(.", err);
+				dispatch({type: SIGNING_IN_ERROR, payload: err})
+				console.log(props);
+			})
+		}
+	}
+}
+
+export default connect(null, mapDispatchToProps)(Register);

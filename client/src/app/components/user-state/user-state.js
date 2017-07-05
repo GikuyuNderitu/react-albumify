@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Logout } from '../';
 
 import './user-state.sass';
 
@@ -13,13 +14,14 @@ class UserState extends Component {
 
 	componentDidMount (){
 		// Check to see if user is logged in and set the logged in state
+		// console.log('from user-state component',this.props);
 	}
 
 	render() {
-		return this.state.loggedIn ? (
+		return this.props.authenticated ? (
 			<ul>
 				<li><NavLink activeClassName="active" to="/home">Home</NavLink></li>
-				<li><NavLink activeClassName="active" to="/logout">Logout</NavLink></li>
+				<li><Logout /></li>
 			</ul>
 		) : (
 			<ul>
