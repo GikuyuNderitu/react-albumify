@@ -1,17 +1,29 @@
 # Todo
 [ x ] Add api util to react component
 
-[  ] Implement Auth on the client by expecting a token from the server and saving the user state to the application
+[ x ] Implement Auth on the client by expecting a token from the server and saving the user state to the application
 
 [ x ] Build authentication create function
 
-[  ] Programatically route after successful creation of user on frontend
+[ x ] Programatically route after successful creation of user on frontend
 
-[  ] Build server authentication endpoint with jwt
+[ x ] Build server authentication endpoint with jwt
+
+[  ] Refactor code 
+
+	[  ] Client Side
+		[  ] Header
+		[  ] Register
+		[  ] Login
+		[  ] User-State
+		[  ] Authenticate/Protected Route
+		[  ] Home > Landing/Dashboard (new Component Architecture with dynamic auth-layer rendering)
+		[  ] App
+	[  ] Server Side
 
 [  ] Implement Passport strategy OAuth
 
-[  ] Add .env files for config
+[ x ] Add .env files for config
 
 [  ] Find out something cool to do with Spotify API!
 
