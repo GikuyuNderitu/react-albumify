@@ -20,6 +20,9 @@ module.exports = {
 			"/users": {
 				target: "http://localhost:1337",
 			},
+			"/authenticate": {
+				target: "http://localhost:1337",
+			},
 			"/api": {
 				target: "http://localhost:1337",
 			}
