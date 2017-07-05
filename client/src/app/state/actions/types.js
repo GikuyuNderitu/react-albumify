@@ -10,6 +10,7 @@ export const SIGNING_IN_ERROR = "SIGN_IN_REJECTED";
 export const SIGNING_OUT = "SIGN_OUT_PENDING";
 export const SIGNING_OUT_SUCCESS = "SIGN_OUT_SUCCESS";
 export const SIGNING_OUT_ERROR = "SIGN_OUT_ERROR";
+export const LOGOUT = "LOGOUT";
 
 /*
  * 

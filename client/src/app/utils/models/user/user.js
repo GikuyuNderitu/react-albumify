@@ -1,5 +1,6 @@
 const EMAIL_REGEX = /^[a-zA-Z\d\#\.\-]{3,}@[a-zA-Z\-]{3,}\.[a-zA-Z]{2,6}$/i
-const NAME_REGEX = /^[a-zA-Z]{3,}$/i
+const NAME_REGEX = /^[a-zA-Z']{3,}$/i
+const USERNAME_REGEX = /^[a-zA-Z\d']{3,}$/i
 const PASSWORD_REGEX = /^[a-zA-Z\d\-\?\!\#\.\^\<\>\$\;]{8,64}$/i
 
 const invalidate = (message, obj) => {
@@ -30,7 +31,7 @@ export default {
 		valid: false,
 		validate(newVal) {
 			if(!newVal) invalidate("Username is required", this);
-			if(!newVal.match(NAME_REGEX)) invalidate('Username must be 3 or more letters.', this);
+			if(!newVal.match(USERNAME_REGEX)) invalidate('Username must be 3 or more letters.', this);
 			else {
 				this.err = '';
 				this.value = newVal;
